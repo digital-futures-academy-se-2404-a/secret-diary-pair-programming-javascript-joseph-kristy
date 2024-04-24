@@ -14,3 +14,17 @@ it("should create entries when the diary is unlocked", () => {
 
 });
 
+it("should not create entries when the diary is locked", () => {
+
+    // Arrange
+    const testEntry = {};
+    const testDiary = new Diary();
+
+    // Act
+    testDiary.lockDiary();
+    testDiary.createEntry(testEntry);
+
+    // Assert
+    expect(testDiary.getEntries()[0]).toBe(undefined);
+
+})
